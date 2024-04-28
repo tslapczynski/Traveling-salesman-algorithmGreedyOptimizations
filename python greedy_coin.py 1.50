@@ -1,0 +1,20 @@
+import argparse
+
+def greedy_change(amount, dollars=False, cents=False):
+    # Your implementation of the greedy change algorithm here
+    pass
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Greedy Change Calculator')
+    parser.add_argument('amount', type=float, help='Amount to calculate change for')
+    parser.add_argument('--dollars', action='store_true', help='Flag to calculate change in dollars')
+    parser.add_argument('--cents', action='store_true', help='Flag to calculate change in cents')
+
+    args = parser.parse_args()
+
+    if args.dollars and args.cents:
+        print("Error: Please specify either --dollars or --cents, not both.")
+    elif not args.dollars and not args.cents:
+        print("Error: Please specify either --dollars or --cents.")
+    else:
+        greedy_change(args.amount, args.dollars, args.cents)
